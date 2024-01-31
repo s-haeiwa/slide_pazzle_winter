@@ -45,9 +45,15 @@ function drawSeiakImage(loadedImage) {
     // 画像をbase64エンコード
     const seikaiImage = canvasElem.toDataURL()
 
+    // img要素を生成する
+    // (補足)作っているものイメージ: <img src="base64エンコードしたした画像">
     let tile = document.createElement("img");
     tile.src = seikaiImage;
+
+    // index.htmlファイルに定義したseikaiのdivを取得し、生成したimg要素を描画する
     document.getElementById("seikai").append(tile);
+
+    // seikaiImageを戻り値として返す
     return seikaiImage
 }
 
@@ -123,6 +129,7 @@ function createSlidePazzleImage(seikaiImage, blankTile) {
                     return imageConfigure.orderNum == selectedNum
                 })
 
+                // img要素を生成する
                 let tile = document.createElement("img");
 
                 // 以下で作っているもののイメージ: 
@@ -144,6 +151,7 @@ function createSlidePazzleImage(seikaiImage, blankTile) {
                     tile.src = encodedImage;
                 }
 
+                // index.htmlファイルに定義したpazzleのdivを取得し、生成したimg要素を描画する
                 document.getElementById("pazzle").append(tile);
 
 
